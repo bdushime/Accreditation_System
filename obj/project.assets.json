@@ -264,11 +264,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\C# projects\\AccreditationSystem\\AccreditationSystem.csproj",
+      "projectUniqueName": "D:\\C#projectsOthers\\AccreditationSystem\\Accreditation_System\\AccreditationSystem.csproj",
       "projectName": "AccreditationSystem",
-      "projectPath": "D:\\C# projects\\AccreditationSystem\\AccreditationSystem.csproj",
+      "projectPath": "D:\\C#projectsOthers\\AccreditationSystem\\Accreditation_System\\AccreditationSystem.csproj",
       "packagesPath": "C:\\Users\\BeniEgide\\.nuget\\packages\\",
-      "outputPath": "D:\\C# projects\\AccreditationSystem\\obj\\",
+      "outputPath": "D:\\C#projectsOthers\\AccreditationSystem\\Accreditation_System\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

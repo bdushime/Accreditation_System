@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "013JhCFow4E=",
+  "dgSpecHash": "RjuQeZQsvbc=",
   "success": true,
-  "projectFilePath": "D:\\C# projects\\AccreditationSystem\\AccreditationSystem.csproj",
+  "projectFilePath": "D:\\C#projectsOthers\\AccreditationSystem\\Accreditation_System\\AccreditationSystem.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\BeniEgide\\.nuget\\packages\\bouncycastle.cryptography\\2.5.1\\bouncycastle.cryptography.2.5.1.nupkg.sha512",
     "C:\\Users\\BeniEgide\\.nuget\\packages\\mailkit\\4.11.0\\mailkit.4.11.0.nupkg.sha512",
