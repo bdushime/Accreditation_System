@@ -2,8 +2,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
-
-using AccreditationSystem.Pages.Services; // Make sure to update this namespace to match your project
+using AccreditationSystem.Pages.Services; // Make sure namespace matches your project
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,8 +18,28 @@ builder.Services.AddSession(options =>
     options.Cookie.IsEssential = true;
 });
 
-// Register email service
-builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
+// Register email service with secure credential management
+builder.Services.Configure<EmailSettings>(options =>
+{
+    // Load base configuration from appsettings.json
+    builder.Configuration.GetSection("EmailSettings").Bind(options);
+
+    // Load credentials from environment variables or user secrets
+    // This prioritizes secrets over appsettings values
+    var smtpUsername = builder.Configuration["EmailSettings:SmtpUsername"];
+    var smtpPassword = builder.Configuration["EmailSettings:SmtpPassword"];
+
+    if (!string.IsNullOrEmpty(smtpUsername))
+    {
+        options.SmtpUsername = smtpUsername;
+    }
+
+    if (!string.IsNullOrEmpty(smtpPassword))
+    {
+        options.SmtpPassword = smtpPassword;
+    }
+});
+
 builder.Services.AddTransient<IEmailService, EmailService>();
 
 // Add logging service
