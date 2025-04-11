@@ -1,0 +1,48 @@
+﻿@page
+@model AccreditationSystem.Pages.Auth.LoginModel
+@{
+    ViewData["Title"] = "Login";
+}
+<div class="row">
+    <div class="col-lg-6 mx-auto">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="text-center mb-4">Login</h2>
+
+                @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+                {
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <strong>@Model.ErrorMessage</strong>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                }
+
+                <form method="post">
+                    <div class="mb-3">
+                        <label asp-for="Email" class="form-label">Email</label>
+                        <input type="email" class="form-control" asp-for="Email">
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Password" class="form-label">Password</label>
+                        <input type="password" class="form-control" asp-for="Password">
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </div>
+
+                    <div class="text-center mt-3">
+                        <p>Don't have an account? <a href="/Auth/Register">Register</a></p>
+                    </div>
+
+                    <div class="text-center mt-3">
+                        <p>Forgot your password? <a href="/Auth/ForgotPassword">Reset it here</a></p>
+                   </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
