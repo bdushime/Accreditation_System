@@ -1,98 +1,244 @@
 ﻿@page
 @model AccreditationSystem.Pages.Auth.RegisterModel
 @{
-	ViewData["Title"] = "Register";
+    ViewData["Title"] = "Register";
+    Layout = null;
 }
 
-<div class="row">
-	<div class="col-lg-8 mx-auto">
-		<div class="card">
-			<div class="card-body">
-				<h2 class="text-center mb-5">Create new Account</h2>
-				@if (Model.errorMessage.Length > 0)
-				{
-							<div class="alert alert-warning alert-dismissible fade show" role='alert'>
-								<strong>@Model.errorMessage</strong>
-								<button type="button" class="btn-close" data-bs-dismiss='alert' aria-label='Close'></button>
-							</div>
-				}
-				else if (Model.successMessage.Length > 0)
-				{
-							<div class="alert alert-success alert-dismissible fade show" role='alert'>
-								<strong>@Model.successMessage</strong>
-								<button type="button" class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
-							</div>
-				}
-				<form method="post">
-					<div class="row mb-3">
-						<label class="col-sm-4 col-form-label">First Name</label>
-						<div class="col-sm-8">
-							<input class="form-control" asp-for="FirstName" />
-							<span asp-validation-for="FirstName" class="text-danger"></span>
-						</div>
-					</div>
-					<div class="row mb-3">
-						<label class="col-sm-4 col-form-label">Last Name</label>
-						<div class="col-sm-8">
-							<input class="form-control" asp-for="LastName" />
-							<span asp-validation-for="LastName" class="text-danger"></span>
-						</div>
-					</div>
-					<div class="row mb-3">
-						<label class="col-sm-4 col-form-label">Email</label>
-						<div class="col-sm-8">
-							<input class="form-control" asp-for="Email" />
-							<span asp-validation-for="Email" class="text-danger"></span>
-						</div>
-					</div>
-					<div class="row mb-3">
-						<label class="col-sm-4 col-form-label">Phone Number</label>
-						<div class="col-sm-8">
-							<input class="form-control" asp-for="Phone" />
-							<span asp-validation-for="Phone" class="text-danger"></span>
-						</div>
-					</div>
-					<div class="row mb-3">
-						<label class="col-sm-4 col-form-label">Address</label>
-						<div class="col-sm-8">
-							<input class="form-control" asp-for="Address" />
-							<span asp-validation-for="Address" class="text-danger"></span>
-						</div>
-					</div>
-					<div class="row mb-3">
-						<label class="col-sm-4 col-form-label">Password</label>
-						<div class="col-sm-8">
-							<input class="form-control" type="password" asp-for="Password" />
-							<span asp-validation-for="Password" class="text-danger"></span>
-						</div>
-					</div>
-					<div class="row mb-3">
-						<label class="col-sm-4 col-form-label">Comfirm Password</label>
-						<div class="col-sm-8">
-							<input class="form-control" type="password" asp-for="ComfirmPassword" />
-							<span asp-validation-for="ComfirmPassword" class="text-danger"></span>
-						</div>
-					</div>
-					<div class="row mb-3">
-						<label class="col-sm-4 col-form-label">Role</label>
-						<div class="col-sm-8">
-							<select class="form-select" asp-for="Role">
-								<option value="customer">Customer</option>
-								<option value="admin">Admin</option>
-							</select>
-							<span asp-validation-for="Role" class="text-danger"></span>
-						</div>
-					</div>
-					<div class="row mb-3">
-					  <div class="offset-sm-4 col-sm-4 d-grid">
-						  <button type="submit" class="btn btn-primary">Register</button>
-					  </div>
-					  <div class="col-sm-4 d-grid">
-						  <a class='btn btn-outline-primary' href="/" role="button">Cancel</a>
-					  </div>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Accreditation System</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .split-screen {
+            display: flex;
+            height: 100vh;
+            width: 100%;
+        }
+
+        .building-image {
+            flex: 1;
+            background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .form-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 2rem;
+            overflow-y: auto;
+            max-width: 50%;
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-content {
+            max-width: 450px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .form-group {
+            margin-bottom: 0.75rem;
+        }
+
+        .form-label {
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+            display: block;
+        }
+
+        .form-control {
+            padding: 0.5rem 0.75rem;
+            border-radius: 8px;
+            border: 1px solid #ced4da;
+        }
+
+        .btn-primary {
+            background-color: #4f46e5;
+            border: none;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            font-weight: 500;
+            width: 100%;
+        }
+
+        .btn-outline-primary {
+            border: 1px solid #4f46e5;
+            color: #4f46e5;
+            background-color: transparent;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            font-weight: 500;
+            width: 100%;
+        }
+
+        .btn-primary:hover {
+            background-color: #4338ca;
+        }
+
+        .btn-outline-primary:hover {
+            background-color: #4f46e5;
+            color: white;
+        }
+
+        .link-primary {
+            color: #4f46e5;
+            text-decoration: none;
+        }
+
+        .link-primary:hover {
+            text-decoration: underline;
+        }
+
+        .nav-link {
+            color: #4f46e5;
+            text-decoration: none;
+            text-align: right;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        @@media (max-width: 992px) {
+            .split-screen {
+                flex-direction: column;
+            }
+
+            .building-image {
+                height: 30vh;
+            }
+
+            .form-container {
+                height: 70vh;
+                max-width: 100%;
+            }
+
+            .form-content {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="split-screen">
+        <div class="building-image"></div>
+        <div class="form-container">
+            <div class="form-content">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <a href="/">Accreditation</a>
+                    <a class="nav-link" href="/Auth/Login">Login</a>
+                </div>
+
+                <div class="form-header">
+                    <h2 class="mb-1">Register Here!</h2>
+                    <p class="text-muted">For staff only</p>
+                </div>
+
+                @if (Model.errorMessage.Length > 0)
+                {
+                        <div class="alert alert-warning alert-dismissible fade show" role='alert'>
+                            <strong>@Model.errorMessage</strong>
+                            <button type="button" class="btn-close" data-bs-dismiss='alert' aria-label='Close'></button>
+                        </div>
+                }
+                else if (Model.successMessage.Length > 0)
+                {
+                        <div class="alert alert-success alert-dismissible fade show" role='alert'>
+                            <strong>@Model.successMessage</strong>
+                            <button type="button" class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+                        </div>
+                }
+
+                <form method="post">
+                    <div class="form-group">
+                        <label class="form-label">First Name</label>
+                        <input class="form-control" asp-for="FirstName" placeholder="Enter your first name" />
+                        <span asp-validation-for="FirstName" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Last Name</label>
+                        <input class="form-control" asp-for="LastName" placeholder="Enter your last name" />
+                        <span asp-validation-for="LastName" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <input class="form-control" asp-for="Email" placeholder="Enter your email" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Phone Number</label>
+                        <input class="form-control" asp-for="Phone" placeholder="Enter your phone number" />
+                        <span asp-validation-for="Phone" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Address</label>
+                        <input class="form-control" asp-for="Address" placeholder="Enter your address" />
+                        <span asp-validation-for="Address" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Password</label>
+                        <input class="form-control" type="password" asp-for="Password" placeholder="Enter password" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Confirm Password</label>
+                        <input class="form-control" type="password" asp-for="ComfirmPassword" placeholder="Confirm your password" />
+                        <span asp-validation-for="ComfirmPassword" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Role</label>
+                        <select class="form-select form-control" asp-for="Role">
+                            <option value="customer">Customer</option>
+                            <option value="admin">Admin</option>
+                        </select>
+                        <span asp-validation-for="Role" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group text-end">
+                        <a href="/Auth/ForgotPassword" class="link-primary">Forgot password?</a>
+                    </div>
+
+                    <div class="row g-2 mt-3">
+                        <div class="col-6">
+                            <button type="submit" class="btn btn-primary">Register</button>
+                        </div>
+                        <div class="col-6">
+                            <a class="btn btn-outline-primary" href="/" role="button">Cancel</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+</body>
+</html>
