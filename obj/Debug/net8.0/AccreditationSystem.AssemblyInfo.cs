@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AccreditationSystem")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7d25deaac793eba71c18a2ea8caea57490fe69b7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0bec2e58012e7b4602b2ad67f46d393bb7a72088")]
 [assembly: System.Reflection.AssemblyProductAttribute("AccreditationSystem")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AccreditationSystem")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
