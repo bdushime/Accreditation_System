@@ -1,0 +1,40 @@
+﻿@page
+@model AccreditationSystem.Pages.Customer.DashboardModel
+@{
+    ViewData["Title"] = "Customer Dashboard";
+}
+
+<div class="container mt-4">
+    <h1>Customer Dashboard</h1>
+    <p>Welcome, @HttpContext.Session.GetString("UserName")!</p>
+
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">My Profile</h5>
+                    <p class="card-text">View and edit your profile information.</p>
+                    <a href="#" class="btn btn-primary">Edit Profile</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">My Orders</h5>
+                    <p class="card-text">View your order history and track current orders.</p>
+                    <a href="#" class="btn btn-primary">View Orders</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Browse Products</h5>
+                    <p class="card-text">Check out our latest products and offers.</p>
+                    <a href="#" class="btn btn-primary">Shop Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

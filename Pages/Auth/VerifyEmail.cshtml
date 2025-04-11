@@ -1,0 +1,32 @@
+﻿@page
+@model AccreditationSystem.Pages.Auth.VerifyEmailModel
+@{
+    ViewData["Title"] = "Verify Email";
+}
+
+
+<div class="row">
+    <div class="col-lg-8 mx-auto">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="text-center mb-5">Email Verification</h2>
+
+                @if (Model.Message.Contains("successfully"))
+                {
+                            <div class="alert alert-success">
+                                <strong>@Model.Message</strong>
+                            </div>
+                            <div class="text-center mt-4">
+                                <a class="btn btn-primary" href="/Auth/Login">Go to Login</a>
+                            </div>
+                }
+                else
+                {
+                            <div class="alert alert-danger">
+                                <strong>@Model.Message</strong>
+                            </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+﻿@page
+@model AccreditationSystem.Pages.Admin.DashboardModel
+@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+
+<div class="container mt-4">
+    <h1>Admin Dashboard</h1>
+    <p>Welcome, @HttpContext.Session.GetString("UserName")!</p>
+
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Manage Products</h5>
+                    <p class="card-text">Add, edit, or remove products from the catalog.</p>
+                    <a href="#" class="btn btn-primary">Go to Products</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Manage Users</h5>
+                    <p class="card-text">View and manage registered users.</p>
+                    <a href="#" class="btn btn-primary">Go to Users</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">View Orders</h5>
+                    <p class="card-text">Check and process customer orders.</p>
+                    <a href="#" class="btn btn-primary">Go to Orders</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -8,6 +8,14 @@
 
   <ItemGroup>
     <PackageReference Include="MailKit" Version="4.11.0" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="6.0.1" />
+    <PackageReference Include="NetMQ" Version="4.0.1.13" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.9.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Pages\HOD Pages\" />
+    <Folder Include="Pages\ATHENTICATION AND AUTHORIZATION PAGES\" />
   </ItemGroup>
 
 </Project>
