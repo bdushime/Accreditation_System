@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "PUlf2wzluOY=",
+  "dgSpecHash": "crG6uyRvhsw=",
   "success": true,
-  "projectFilePath": "D:\\C# projects\\AccreditationSystem\\AccreditationSystem.csproj",
+  "projectFilePath": "D:\\C#projectsOthers\\AccreditationSystem\\Accreditation_System\\AccreditationSystem.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\BeniEgide\\.nuget\\packages\\asyncio\\0.1.69\\asyncio.0.1.69.nupkg.sha512",
     "C:\\Users\\BeniEgide\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
